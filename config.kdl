@@ -12,6 +12,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // Environment variables for spawned apps (adjust to taste)
 environment {
     QT_QPA_PLATFORM "wayland"
+		GTK_THEME "Tokyonight-Dark"
     // DISPLAY null // uncomment if you want to drop DISPLAY for Wayland-native apps
 }
 
