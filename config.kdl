@@ -12,7 +12,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // Environment variables for spawned apps (adjust to taste)
 environment {
     QT_QPA_PLATFORM "wayland"
-		GTK_THEME "Tokyonight-Dark"
+		GTK_THEME "Tokyonight:dark"
     // DISPLAY null // uncomment if you want to drop DISPLAY for Wayland-native apps
 }
 
@@ -62,7 +62,7 @@ layout {
 
 // Persistent workspaces
 
-workspace ""     // home
+workspace ""     // home
 workspace ""     // browser (firefox)
 workspace ""     // twitch/streaming
 workspace ""     // discord/chat
@@ -119,7 +119,7 @@ binds {
 
 		XF86Explorer { toggle-overview; }
 
-		Mod+1 { focus-workspace ""; }
+		Mod+1 { focus-workspace ""; }
 		Mod+2 { focus-workspace ""; }
 		Mod+3 { focus-workspace ""; }
 		Mod+4 { focus-workspace ""; }
@@ -129,7 +129,7 @@ binds {
 		Mod+8 { focus-workspace "8"; }
 		Mod+9 { focus-workspace "9"; }	
 
-		Mod+Shift+1 { move-column-to-workspace ""; }
+		Mod+Shift+1 { move-column-to-workspace ""; }
 		Mod+Shift+2 { move-column-to-workspace ""; }
 		Mod+Shift+3 { move-column-to-workspace ""; }
 		Mod+Shift+4 { move-column-to-workspace ""; }
