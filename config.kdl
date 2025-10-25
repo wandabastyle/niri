@@ -6,6 +6,10 @@
 // ---------- General look & misc ----------
 prefer-no-csd
 
+hotkey-overlay {
+	skip-at-startup
+}
+
 // Save screenshots here. Set to null to disable file saves.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
@@ -60,6 +64,12 @@ layout {
 	}
 }
 
+gestures {
+	hot-corners { 
+		off 
+	}
+}
+
 // Persistent workspaces
 workspace ""     // home
 workspace ""     // browser (firefox)
@@ -89,6 +99,7 @@ binds {
 	Mod+M				{ spawn "pcmanfm"; }              // $fileManager
 	Mod+Space		{ spawn "rofi" "-modi" "combi" "-show" "combi" "-combi-modi" "drun,run" "-show-icons"; }  // $menu
 	Mod+B				{ spawn "qutebrowser"; }
+	XF86LaunchA { show-hotkey-overlay; }
 
 	// --- Window management ---
 	Mod+Shift+C { close-window; }                // killactive
@@ -202,8 +213,3 @@ window-rule {
 	open-maximized true
 }
 
-// ---------- Mouse & gestures ----------
-// Hypr bindm movewindow/resizewindow are niri defaults:
-//   - Hold Mod + Left mouse button to move
-//   - Hold Mod + Right mouse button to resize
-//   - Hold Mod + Middle/wheel to scroll the view horizontally
