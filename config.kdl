@@ -59,8 +59,17 @@ layout {
 	gaps 2
 	focus-ring {
 		width 1
-		active-color "#121212ae"
-		inactive-color "#595959aa"
+		active-color "#bb9af7cc"
+		inactive-color "#565f89aa"
+	}
+	preset-column-widths {
+		// quarters
+		proportion 0.25
+		proportion 0.50
+		proportion 0.75
+		//defaults
+		proportion 0.33333
+		proportion 0.66667
 	}
 }
 
