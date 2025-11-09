@@ -88,9 +88,9 @@ workspace ""     // discord/chat
 // ---------- Autostart ----------
 // Matches your Hyprland exec-once as closely as possible
 // spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-//spawn-at-startup "waybar"
-//spawn-at-startup "wpaperd"
-spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/"
+spawn-at-startup "waybar"
+spawn-at-startup "wpaperd"
+//spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/"
 // spawn-at-startup "emacs" "--daemon"
 // hypridle works with any wlroots compositor that supports idle; keep if you use it
 spawn-at-startup "hypridle"
