@@ -95,14 +95,15 @@ workspace ""     // discord/chat
 spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/"
 // spawn-at-startup "emacs" "--daemon"
 // hypridle works with any wlroots compositor that supports idle; keep if you use it
-spawn-at-startup "hypridle"
+// spawn-at-startup "hypridle"
 
 // ---------- Binds ----------
 // Map Hyprland binds to niri actions.
 binds {
 	// --- Session / Lock / Quit ---
-	Mod+Shift+Q { spawn "nwg-bar"; }
-	Mod+Shift+L { spawn "hyprlock"; }  // keep as in Hyprland
+	Mod+Shift+Q { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
+	Mod+Shift+L { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+	// Mod+Shift+L { spawn "hyprlock"; }  // keep as in Hyprland
 	Mod+Shift+E { quit; }
 
 	// --- Apps (Hypr $terminal / $fileManager / $menu) ---
