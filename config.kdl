@@ -16,6 +16,8 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // Environment variables for spawned apps (adjust to taste)
 environment {
 	QT_QPA_PLATFORM "wayland"
+	LIBVA_DRIVER_NAME "nvidia"
+	NVD_BACKEND "direct"
 	GTK_THEME "Tokyonight-Dark"
 	ELECTRON_OZONE_PLATFORM_HINT "auto"  // or "wayland" to force
 	// DISPLAY null // uncomment if you want to drop DISPLAY for Wayland-native apps
@@ -205,7 +207,7 @@ window-rule {
 }
 
 window-rule {
-	match app-id="brave-comkdlimbkhemidbbpchhepidbmjpnhh-Default"
+	match title=r#"(?i)twitch"#
 	open-on-workspace ""
 	default-column-width { proportion 0.75; }
 }
