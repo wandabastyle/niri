@@ -16,9 +16,11 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // Environment variables for spawned apps (adjust to taste)
 environment {
 	QT_QPA_PLATFORM "wayland"
+	QS_ICON_THEME "Tokyonight-Dark"
 	LIBVA_DRIVER_NAME "nvidia"
 	NVD_BACKEND "direct"
 	GTK_THEME "Tokyonight-Dark"
+	MOZ_DISABLE_RDD_SANDBOX "1"
 	ELECTRON_OZONE_PLATFORM_HINT "auto"  // or "wayland" to force
 	// DISPLAY null // uncomment if you want to drop DISPLAY for Wayland-native apps
 }
@@ -82,20 +84,21 @@ gestures {
 }
 
 // Persistent workspaces
-workspace ""     // home
-workspace ""     // browser (firefox)
-workspace ""     // twitch/streaming
-workspace ""     // discord/chat
+workspace "1"     // home
+workspace "2"     // browser (firefox)
+workspace "3"     // twitch/streaming
+workspace "4"     // discord/chat
 
 // ---------- Autostart ----------
 // Matches your Hyprland exec-once as closely as possible
 // spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 //spawn-at-startup "waybar"
 //spawn-at-startup "wpaperd"
-spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/"
+// spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/"
 // spawn-at-startup "emacs" "--daemon"
 // hypridle works with any wlroots compositor that supports idle; keep if you use it
 // spawn-at-startup "hypridle"
+spawn-at-startup "swayidle" "-w" "timeout" "600" "qs -c noctalia-shell ipc call lockScreen lock" "timeout" "900" "systemctl suspend" "before-sleep" "qs -c noctalia-shell ipc call lockScreen lock"
 
 // ---------- Binds ----------
 // Map Hyprland binds to niri actions.
@@ -122,13 +125,13 @@ binds {
 	// --- Focus & move (HJKL + arrows) ---
 	Mod+Left  { focus-column-left; }
 	Mod+Right { focus-column-right; }
-	Mod+Down  { focus-window-down; }
-	Mod+Up    { focus-window-up; }
+	Mod+Next  { focus-window-down; }
+	Mod+Prior	{ focus-window-up; }
 
-	Mod+Ctrl+Left  { move-column-left; }
-	Mod+Ctrl+Right { move-column-right; }
-	Mod+Ctrl+Down  { move-window-down; }
-	Mod+Ctrl+Up    { move-window-up; }
+	Mod+Ctrl+Left		{ move-column-left; }
+	Mod+Ctrl+Right	{ move-column-right; }
+	Mod+Ctrl+Next		{ move-window-down; }
+	Mod+Ctrl+Prior	{ move-window-up; }
 
 	Mod+Ctrl+Shift+Left  { move-column-to-monitor-left; }
 	Mod+Ctrl+Shift+Right { move-column-to-monitor-right; }
@@ -138,20 +141,20 @@ binds {
 	// --- Workspaces ---
 	XF86Explorer { toggle-overview; }
 	
-	Mod+1 { focus-workspace ""; }
-	Mod+2 { focus-workspace ""; }
-	Mod+3 { focus-workspace ""; }
-	Mod+4 { focus-workspace ""; }
+	Mod+1 { focus-workspace "1"; }
+	Mod+2 { focus-workspace "2"; }
+	Mod+3 { focus-workspace "3"; }
+	Mod+4 { focus-workspace "4"; }
 	Mod+5 { focus-workspace 5; }
 	Mod+6 { focus-workspace 6; }
 	Mod+7 { focus-workspace 7; }
 	Mod+8 { focus-workspace 8; }
 	Mod+9 { focus-workspace 9; }	
 
-	Mod+Shift+1 { move-column-to-workspace ""; }
-	Mod+Shift+2 { move-column-to-workspace ""; }
-	Mod+Shift+3 { move-column-to-workspace ""; }
-	Mod+Shift+4 { move-column-to-workspace ""; }
+	Mod+Shift+1 { move-column-to-workspace "1"; }
+	Mod+Shift+2 { move-column-to-workspace "2"; }
+	Mod+Shift+3 { move-column-to-workspace "3"; }
+	Mod+Shift+4 { move-column-to-workspace "4"; }
 	Mod+Shift+5 { move-column-to-workspace "5"; }
 	Mod+Shift+6 { move-column-to-workspace "6"; }
 	Mod+Shift+7 { move-column-to-workspace "7"; }
@@ -163,10 +166,10 @@ binds {
 	Mod+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
 
 	// Up/Down (matches niri defaults)
-	Mod+Next { focus-workspace-down; }
-	Mod+Prior { focus-workspace-up; }
-	Mod+Ctrl+Next { move-column-to-workspace-down; }
-	Mod+Ctrl+Prior { move-column-to-workspace-up; }
+	Mod+Down				{ focus-workspace-down; }
+	Mod+Up					{ focus-workspace-up; }
+	Mod+Ctrl+Down		{ move-column-to-workspace-down; }
+	Mod+Ctrl+Up			{ move-column-to-workspace-up; }
 
 	// --- Column/Window sizing (rough equivalents) ---
 	Mod+Shift+Left   { set-column-width "-10%"; }
@@ -203,26 +206,26 @@ binds {
 
 window-rule {
 	match app-id="org.qutebrowser.qutebrowser"
-	open-on-workspace ""
+	open-on-workspace "2"
 	open-maximized true
 }
 
 window-rule {
-	match title=r#"(?i)twitch"#
-	open-on-workspace ""
+	match app-id="twitch"
+	open-on-workspace "3"
 	default-column-width { proportion 0.75; }
 }
 
 window-rule {
 	match app-id="com.chatterino.chatterino"
-	open-on-workspace ""
+	open-on-workspace "3"
 	default-column-width { proportion 0.25; }
 	open-floating false
 }
 
 window-rule {
 	match app-id="discord"
-	open-on-workspace ""
+	open-on-workspace "4"
 	open-maximized true
 }
 
