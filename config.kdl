@@ -202,6 +202,10 @@ binds {
 
 	XF86MonBrightnessUp   { spawn "brightnessctl" "set" "+5%"; }
 	XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
+
+	// --- Noctalia Shell ---
+	Mod+N				{ spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"; }
+	Mod+Shift+N	{ spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "clear"; }
 }
 
 window-rule {
