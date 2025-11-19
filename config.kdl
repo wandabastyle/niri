@@ -112,7 +112,7 @@ binds {
 	// --- Apps (Hypr $terminal / $fileManager / $menu) ---
 	// Change these if you prefer different apps
 	Mod+Return	{ spawn "ghostty"; }            // $terminal
-	Mod+M				{ spawn "pcmanfm"; }              // $fileManager
+	Mod+P				{ spawn "pcmanfm"; }              // $fileManager
 	Mod+Space		{ spawn "rofi" "-modi" "combi" "-show" "combi" "-combi-modi" "drun,run" "-show-icons"; }  // $menu
 	Mod+B				{ spawn "qutebrowser"; }
 	XF86LaunchA { show-hotkey-overlay; }
@@ -121,6 +121,7 @@ binds {
 	Mod+Shift+C { close-window; }                // killactive
 	Mod+V       { toggle-window-floating; }      // togglefloating
 	XF86Search  { fullscreen-window; }           // your Hypr fullscreen key
+	Mod+F				{ fullscreen-window; }
 
 	// --- Focus & move (HJKL + arrows) ---
 	Mod+Left  { focus-column-left; }
@@ -140,6 +141,7 @@ binds {
 
 	// --- Workspaces ---
 	XF86Explorer { toggle-overview; }
+	Ctrl+Alt+Tab { toggle-overview; }
 	
 	Mod+1 { focus-workspace "1"; }
 	Mod+2 { focus-workspace "2"; }
@@ -178,7 +180,7 @@ binds {
 	Mod+Shift+Up     { set-window-height "+10%"; }
 	Mod+R            { switch-preset-column-width; }
 	Mod+Shift+R      { switch-preset-window-height; }
-	Mod+F            { maximize-column; }
+	Mod+M            { maximize-column; }
 	Mod+C            { center-column; }
 
 	// --- Consume / expel (closest to Hypr split juggling) ---
