@@ -99,6 +99,7 @@ workspace "4"     // discord/chat
 // hypridle works with any wlroots compositor that supports idle; keep if you use it
 // spawn-at-startup "hypridle"
 spawn-at-startup "swayidle" "-w" "timeout" "600" "qs -c noctalia-shell ipc call lockScreen lock" "timeout" "900" "systemctl suspend" "before-sleep" "qs -c noctalia-shell ipc call lockScreen lock"
+spawn-at-startup "niriswitcher"
 
 // ---------- Binds ----------
 // Map Hyprland binds to niri actions.
@@ -142,6 +143,7 @@ binds {
 	// --- Workspaces ---
 	XF86Explorer { toggle-overview; }
 	Ctrl+Alt+Tab { toggle-overview; }
+	Alt+Tab repeat=false { spawn "niriswitcherctl" "show" "--window"; }
 	
 	Mod+1 { focus-workspace "1"; }
 	Mod+2 { focus-workspace "2"; }
