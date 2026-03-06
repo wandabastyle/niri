@@ -96,6 +96,7 @@ workspace "5"			// steam
 //spawn-at-startup "waybar"
 //spawn-at-startup "wpaperd"
 // spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/"
+spawn-at-startup "qs" "-c" "noctalia-shell"
 // spawn-at-startup "emacs" "--daemon"
 // hypridle works with any wlroots compositor that supports idle; keep if you use it
 // spawn-at-startup "hypridle"
