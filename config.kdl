@@ -45,6 +45,7 @@ input {
 	keyboard {
 		xkb {
 			layout "de" // uncomment if you want DE layout globally
+			variant "nodeadkeys"
 			// options "compose:ralt,ctrl:nocaps"
 		}
 		numlock
