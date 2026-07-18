@@ -45,7 +45,6 @@ input {
 	keyboard {
 		xkb {
 			layout "de" // uncomment if you want DE layout globally
-			variant "nodeadkeys"
 			// options "compose:ralt,ctrl:nocaps"
 		}
 		numlock
@@ -239,4 +238,3 @@ window-rule {
 	open-on-workspace "4"
 	open-maximized true
 }
-
