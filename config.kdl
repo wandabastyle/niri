@@ -54,6 +54,11 @@ input {
 		// natural-scroll // comment this out to match Hyprland's natural_scroll=false
 		tap
 	}
+  mouse {
+    scroll-factor 1.5
+    accel-profile "adaptive"
+    accel-speed -0.4
+  }
 	// Focus follows mouse, and allow quick workspace back-and-forth by pressing the same number twice
 	focus-follows-mouse max-scroll-amount="0%"
 	workspace-auto-back-and-forth
